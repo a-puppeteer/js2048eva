@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .game {
+            width: 600px;
+            height: 600px;
+            /* background-color:pink; */
+            background: url('./img/1.bmp') no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content:flex-start;
+            flex-wrap:wrap;
+        }
+
+        .game h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 80px;
+            color: orange;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .game h3 {
+            margin: 0;
+            text-align: right;
+            font-size: 50px;
+            color: orange;
+            position: absolute;
+            left: 70%;
+            top:80px;
+            
+        }
+
+        .game span {
+            display: inline-block;
+            width: 130px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 5px solid #ccc;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 40%;
+            position: absolute;
+            left: 50%;
+            top: 500px;
+
+            font-size: 30px;
+            font-weight: 800;
+            color: aqua;
+            transition: all .7s;
+            transform: translate(-50%, 0);
+            transform-origin: center center;
+
+        }
+
+        .game span:hover {
+            cursor: pointer;
+            transform: translate(-50%, 0) scale(1.1);
+        }
+        .game .joy{
+            line-height: 148px;
+            text-align: center;
+            font-size: 50px;
+            width: 148px;
+            height: 148px;
+            background-color: orangered;
+            border: 1px solid #ccc;
+            opacity: .16;
+            color:rgba(26,231,238,0.5);
+            /* color: rgb(26, 231, 238); */
+            
+            
+        }
+        .game .rank2{
+			opacity: 1;
+            background: url('./img/rank1.png');
+            background-size: cover;
+            
+        }
+        .game .rank4{
+			opacity: 1;
+            background: url('./img/rank2.png');
+            background-size: cover;
+        }
+        .game .rank8{
+			opacity: 1;
+            background: url('./img/rank3.png');
+            background-size: cover;
+        }
+        .game .rank16{
+            opacity: 1;
+            background: url('./img/rank4.png');
+            background-size: cover;
+        }
+        .game .rank32{
+            opacity: 1;
+            background: url('./img/rank5.png');
+            background-size: cover;
+        }
+        .game .rank64{
+            opacity: 1;
+            background: url('./img/rank6.png');
+            background-size: cover;
+        }
+        .game .rank128{
+            opacity: 1;
+            background: url('./img/rank7.png');
+            background-size: cover;
+        }
+        .game .rank256{
+            opacity: 1;
+            background: url('./img/rank8.png');
+            background-size: cover;
+        }
+        .game .rank512{
+            opacity: 1;
+            background: url('./img/rank9.png');
+            background-size: cover;
+        }
+        .game .rank1024{
+            opacity: 1;
+            background: url('./img/rank10.png');
+            background-size: cover;
+        }
+        .game .rank2048{
+            opacity: 1;
+            background: url('./img/rank11.png');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+        <audio  id='eva' src="./高橋洋子 - 残酷な天使のテーゼ.mp3"  loop="loop" >
+        </audio>
+    <div class="game">
+        <div class="start">
+            <h1>2048!</h1>
+            <br>
+            <h3>----kkk</h3>
+            <span class="stgame">start</span>
+        </div>
+
+    </div>
+
+    <script src="./jquery.js"></script>
+    <script src="./begin.js"></script>
+    <script src="./tool.js"></script>
+    <script src="./render.js"></script>
+
+    <script>
+        var eva = document.getElementById("eva");
+        $(function(){
+            $('.stgame').on('click',function(){
+                eva.play();
+                begin();
+            });
+            var direction=["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"]
+
+            var flag=true;
+           	
+            document.onkeydown=function(e){
+                // console.log( e.key );
+                //  console.log( direction.indexOf(e.key) );
+                if(direction.indexOf(e.key)!=(-1)){
+                    if(flag){
+                        flag=false;
+                        render(direction.indexOf(e.key));
+                        // console.log(parseInt(''));
+                        setTimeout(function(){
+                            flag=true;
+                        }, 300);
+                    }
+                       
+                       
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
